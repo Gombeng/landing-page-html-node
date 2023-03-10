@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+// reuse styling
+@mixin d-flex {
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+}
+
+@mixin button {
+  all: unset;
+  padding: .8rem 2rem;
+  border-radius: .3rem;
+  color: white;
+  border: 3px solid black;
+  background: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s all ease;
+
+  &:hover {
+    color: black;
+    background: white;
+    text-decoration: underline;
+  }
+}
+
+// global styling
+section {
+  padding: 1rem;
+  min-height: 90vh;
+  @include d-flex;
+  flex-direction: column;
+
+  .right,
+  .left {
+    flex: 1;
+    padding: 1rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+li,
+a {
+  all: unset;
+}
+
+.btn {
+  @include button;
+}
+
+.text-center {
+  text-align: center;
+  margin: 2rem;
+}
+
+// header
+.header {
+  text-align: center;
+  position: sticky;
+  top: 0;
+  padding: 0 1rem;
+  min-height: 10vh;
+  color: white;
+  align-items: center;
+  background: #000;
+
+  a {
+    margin-right: 2rem;
+    cursor: pointer;
+    transition: .3s all ease;
+
+    &:hover {
+      font-weight: bold
+    }
+
+  }
+
+  @media screen and (min-width: 768px) {
+    @include d-flex;
+    justify-content: space-between;
+  }
+}
+
+// home
+.home {
+  align-items: center;
+
+  .left {
+
+    h2 {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .right {
+
+    img {
+      width: 20rem;
+      height: 20rem;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+
+  @media screen and (max-width: 767.9px) {
+    @include d-flex;
+    text-align: center;
+
+    .left {
+      order: 2;
+    }
+
+    .right {
+      @include d-flex;
+      order: 1;
+
+    }
+  }
+}
+
+// about
+.about {}
+
+// help
+.help {}
+
+// contact
+.contact {
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  input,
+  textarea {
+    border: 1px solid black;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    border-radius: .3rem;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  @media screen and (max-width: 767.9px) {
+    justify-content: flex-start;
+  }
+
+}
+
+// footer
+.footer {
+  @include d-flex;
+  align-items: center;
+  min-height: 10vh;
+  color: white;
+  background: #000;
+}
